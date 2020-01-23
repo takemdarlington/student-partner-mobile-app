@@ -1,68 +1,39 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  StatusBar,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import { Container, Button, Text, Content, Accordion } from 'native-base';
-
-
-const dataArray = [
-  { title: "First Element", content: "Lorem ipsum dolor sit amet" },
-  { title: "Second Element", content: "Lorem ipsum dolor sit amet" },
-  { title: "Third Element", content: "Lorem ipsum dolor sit amet" }
-];
-
-
-const App: () => React$Node = () => {
-  return (
-    <Container>
-        <Button>
-          <Text>
-            Student Partner
-          </Text>
-        </Button>
-		
-		<Content padder>
-          <Accordion dataArray={dataArray} icon="add" expandedIcon="remove"/>
-        </Content>
-		
-      </Container>
-  );
-};
+import React, { useState, useEffect } from 'react';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { Provider } from 'react-redux';
+import Navigation from './components/navigation';
+import Colors from './helpers/Colors';
+import { store, persist } from './reducers';
 
 const styles = StyleSheet.create({
-  
-});
-
-
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: App,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.white,
   },
 });
 
-export default createAppContainer(AppNavigator);
+export default function App() {
+  const [ready, setReady] = useState(false);
 
-//export default App;
+  useEffect(() => {
+    persist(() => {
+      setReady(true);
+    });
+  });
+
+  const loading = (
+    <View style={styles.container}>
+      <ActivityIndicator />
+    </View>
+  );
+
+  const loaded = (
+    <Provider store={store}>
+      <Navigation />
+    </Provider>
+  );
+
+  return ready ? loaded : loading;
+}

@@ -11,13 +11,13 @@ import TextField from '../common/TextField';
 import ErrorView from '../common/ErrorView';
 import styles from './styles';
 
-import ShadowStyles from 'helpers/ShadowStyles';
-import TextStyles from 'helpers/TextStyles';
-import getUser from 'selectors/UserSelectors';
-import errorsSelector from 'selectors/ErrorSelectors';
-import { isLoadingSelector } from 'selectors/StatusSelectors';
-import strings from 'localization';
-import { login, actionTypes } from 'actions/UserActions';
+import ShadowStyles from '../../helpers/ShadowStyles';
+import TextStyles from '../../helpers/TextStyles';
+import getUser from '../../selectors/UserSelectors';
+import errorsSelector from '../../selectors/ErrorSelectors';
+import { isLoadingSelector } from '../../selectors/StatusSelectors';
+import strings from '../../localization';
+import { login, actionTypes } from '../../actions/UserActions';
 
 function Login(props) {
   const [email, setEmail] = useState('');
