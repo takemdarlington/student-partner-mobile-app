@@ -9,10 +9,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import Button from '../common/Button';
 import styles from './styles';
 
-import strings from 'localization';
-import TextStyles from 'helpers/TextStyles';
-import { logout } from 'actions/UserActions';
-import getUser from 'selectors/UserSelectors';
+import strings from '../../localization';
+import TextStyles from '../../helpers/TextStyles';
+import { logout } from '../../actions/UserActions';
+import getUser from '../../selectors/UserSelectors';
 
 function Profile(props) {
   const user = useSelector(state => getUser(state));

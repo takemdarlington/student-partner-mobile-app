@@ -7,9 +7,9 @@ import { useSelector } from 'react-redux';
 
 import styles from './styles';
 
-import TextStyles from 'helpers/TextStyles';
-import strings from 'localization';
-import getUser from 'selectors/UserSelectors';
+import TextStyles from '../../helpers/TextStyles';
+import strings from '../../localization';
+import getUser from '../../selectors/UserSelectors';
 
 function Home() {
   const user = useSelector(state => getUser(state));

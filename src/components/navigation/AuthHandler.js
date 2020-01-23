@@ -5,8 +5,8 @@ import {
 } from 'react-native';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import getUser from 'selectors/UserSelectors';
-import Colors from 'helpers/Colors';
+//import getUser from 'selectors/UserSelectors';
+import Colors from '../../helpers/Colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
 });
 
 function AuthHandler(props) {
-  const user = useSelector(state => getUser(state));
-
+  //const user = useSelector(state => getUser(state));
+	const user = null;
   useEffect(() => {
     if (user !== null) {
       props.navigation.navigate('App');
