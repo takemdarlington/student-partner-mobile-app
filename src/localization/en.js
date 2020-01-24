@@ -9,4 +9,5 @@ export default {
   profileMessage: 'And this one has a nav, but with a different color than the login.',
   logout: 'Logout',
   name: 'Student Partner from Strings',
+  newsFeed: 'News Feed'
 };

@@ -4,10 +4,13 @@ import Colors from '../../helpers/Colors';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.white,
   },
+  searchBar: {
+  	zIndex: 9999999999,
+  	width: "100%",
+  	height: 'inherit'
+  }
 });
 
 export default styles;

@@ -3,6 +3,8 @@ import { Image } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
 
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+
 import Profile from '../Profile';
 import Home from '../Home';
 
@@ -15,6 +17,8 @@ const iconForTab = ({ state }) => {
     case 'Home':
       return homeIcon;
     case 'Profile':
+      return settingsIcon;
+    case 'Search':
       return settingsIcon;
     default:
       return null;
@@ -29,11 +33,13 @@ const TabIcon = ({ icon, tintColor }) => (// eslint-disable-line
 );
 
 const ProfileStack = createStackNavigator({ Profile });
+const SearchStack = createStackNavigator({ Home });
 const HomeStack = createStackNavigator({ Home });
-const AppStack = createBottomTabNavigator(
+const AppStack = createMaterialBottomTabNavigator(
   {
     Home: HomeStack,
     Profile: ProfileStack,
+    Search: SearchStack
   },
   {
     tabBarPosition: 'bottom',
